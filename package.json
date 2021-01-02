@@ -1,0 +1,9 @@
+{
+  "name": "react-ional",
+  "version": "0.2.0",
+  "description": "Microinteractions using the Web Animations API for React",
+  "main": "index.js",
+  "repository": "https://github.com/woofers/react-ional",
+  "author": "Jaxson Van Doorn <woofers1tt@gmail.com>",
+  "license": "MIT"
+}
