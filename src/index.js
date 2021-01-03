@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import micron from 'webkul-micron'
-import styles from 'webkul-micron/dist/css/micron-shake.min.css'
+import styles from './css/micron-shake.min.css'
 
 export const Test = ({ children, type = 'shake', timing = 'ease-in', duration = 0.45, custom }) => {
   const ref = useRef()

@@ -14,7 +14,7 @@
   "repository": "https://github.com/woofers/react-ional",
   "scripts": {
     "start": "yarn watch",
-    "build": "webpack",
+    "build": "rimraf src/css && cp -r node_modules/webkul-micron/dist/css src/. && webpack",
     "clean": "rimraf lib/react-ional.js lib/react-ional.dev.js",
     "test": "echo \"No tests \" && exit 0"
   },
