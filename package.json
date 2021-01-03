@@ -2,8 +2,55 @@
   "name": "react-ional",
   "version": "0.2.0",
   "description": "Microinteractions using the Web Animations API for React",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "src": "src/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
   "repository": "https://github.com/woofers/react-ional",
+  "scripts": {
+    "start": "yarn watch",
+    "build": "webpack",
+    "clean": "rimraf lib/react-ional.js lib/react-ional.dev.js",
+    "test": "echo \"No tests \" && exit 0"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "component",
+    "animation",
+    "micron",
+    "microinteractions"
+  ],
   "author": "Jaxson Van Doorn <woofers1tt@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.17.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-webpack-plugin": "^2.4.1",
+    "peer-deps-externals-webpack-plugin": "^1.0.4",
+    "react": "^17.0.1",
+    "rimraf": "^3.0.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "dependencies": {
+    "webkul-micron": "^1.1.6"
+  }
 }
