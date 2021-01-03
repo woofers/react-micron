@@ -43,7 +43,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-webpack-plugin": "^2.4.1",
     "peer-deps-externals-webpack-plugin": "^1.0.4",
-    "react": "^17.0.1",
     "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
     "webpack": "^5.11.1",

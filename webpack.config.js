@@ -29,7 +29,7 @@ const config = mode => {
       libraryTarget: 'umd',
       globalObject: 'this'
     },
-    externals: [nodeExternals()],
+    externals: [nodeExternals(), 'react'],
     mode: 'production',
     optimization: {
       minimize: !isDev,
