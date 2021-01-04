@@ -1,33 +1,48 @@
 import React, { useRef, useEffect } from 'react'
 import micron from 'webkul-micron'
 
+const wrapInteraction = animation => () => {
+  micron.getEle('.micro')
+  animation(micron)
+}
+
+const enclose = arr => (arr => !Array.isArray(arr) ? [arr] : arr)(arr || [])
+
+const toEvents = (events, interaction) => events.reduce((acc, next) => {
+  acc[next] = wrapInteraction(interaction)
+  return acc
+}, {})
+
+const handlers = (events, interaction) => !Array.isArray(arr) ? events : toEvents(event, interaction)
+
 const Base = ({
   children,
-  event = 'click',
+  events: initialEvents = 'onClick',
   timing = 'ease-in',
   duration = 0.45,
-  custom,
   // Internal
   className = 'micro',
   type = 'custom',
   styles: initialStyles
 }) => {
   const ref = useRef()
+  const events = enclose(initialEvents)
   useEffect(() => {
-    const styles = !Array.isArray(initialStyles) ? [initialStyles] : initialStyles
+    const styles = enclose(initialStyles)
     styles.map(style => style.use())
     return () => {
       styles.map.unuse(style => style.unuse())
     }
   }, [initialStyles])
-  const animation = typeof custom !== 'undefined' ? custom : (el) => {
+  const interaction = el => {
     el.interaction(type).duration(duration.toString()).timing(timing)
   }
-  const onClick = e => {
-    micron.getEle('.micro')
-    animation(micron)
-  }
-  return <div className={className} ref={ref} onClick={onClick}>{children}</div>
+    console.log(handlers(events, interaction))
+  return (
+    <div {...(handlers(events, interaction))} className={className} ref={ref}>
+      {typeof children === 'function' ? children(interaction) : children}
+    </div>
+  )
 }
 
 export default Base
