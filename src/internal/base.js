@@ -57,3 +57,11 @@ const Base = ({
 }
 
 export default Base
+
+export const makeHoc = Wrapper => (Component, options = {}) => {
+  return props => (
+    <Wrapper {...options}>
+      {(interaction, micron) => <Component {...props} interaction={interaction} micron={micron} />}
+    </Wrapper>
+  )
+}
