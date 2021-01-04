@@ -1,19 +1,30 @@
 import React, { useRef, useEffect } from 'react'
 import micron from 'webkul-micron'
 
-const wrapInteraction = animation => () => {
+const getMicron = () => {
   micron.getEle('.micro')
-  animation(micron)
+  return micron
+}
+
+const wrapInteraction = animation => () => {
+  animation(getMicron())
 }
 
 const enclose = arr => (arr => !Array.isArray(arr) ? [arr] : arr)(arr || [])
+
+const encloseString = arr => (arr => !Array.isArray(arr) && typeof arr === 'string' ? [arr] : arr)(arr || [])
 
 const toEvents = (events, interaction) => events.reduce((acc, next) => {
   acc[next] = wrapInteraction(interaction)
   return acc
 }, {})
 
-const handlers = (events, interaction) => !Array.isArray(arr) ? events : toEvents(event, interaction)
+const eventEntries = events =>
+  Object.fromEntries(Object.entries(events).map(
+    ([key, value]) => ([key, value(getMicron)]))
+  )
+
+const handlers = (events, interaction) => !Array.isArray(events) ? eventEntries(events) : toEvents(events, interaction)
 
 const Base = ({
   children,
@@ -23,10 +34,11 @@ const Base = ({
   // Internal
   className = 'micro',
   type = 'custom',
-  styles: initialStyles
+  styles: initialStyles,
+  ...rest
 }) => {
   const ref = useRef()
-  const events = enclose(initialEvents)
+  const events = encloseString(initialEvents)
   useEffect(() => {
     const styles = enclose(initialStyles)
     styles.map(style => style.use())
@@ -37,10 +49,9 @@ const Base = ({
   const interaction = el => {
     el.interaction(type).duration(duration.toString()).timing(timing)
   }
-    console.log(handlers(events, interaction))
   return (
-    <div {...(handlers(events, interaction))} className={className} ref={ref}>
-      {typeof children === 'function' ? children(interaction) : children}
+    <div {...(handlers(events, interaction))} className={className} ref={ref} {...rest}>
+      {typeof children === 'function' ? children(wrapInteraction(interaction), getMicron) : children}
     </div>
   )
 }
