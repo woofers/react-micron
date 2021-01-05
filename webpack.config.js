@@ -62,8 +62,4 @@ const config = mode => {
   }
 }
 
-
-module.exports = [
-  config('development'),
-  config('production')
-]
+module.exports = config('production')

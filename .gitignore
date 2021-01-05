@@ -2,7 +2,6 @@
 /node_modules/
 
 dist
-lib/react-ional.dev.js
-lib/react-ional.js
+lib
 src/css
 src/script

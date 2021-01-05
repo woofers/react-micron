@@ -2,7 +2,7 @@
   "name": "react-ional",
   "version": "0.2.0",
   "description": "Microinteractions using the Web Animations API for React",
-  "main": "lib/index.js",
+  "main": "lib/react-ional.js",
   "src": "src/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -18,7 +18,7 @@
     "build:js": "cp -r node_modules/webkul-micron/build/script src/.",
     "build:patch": "patch src/script/micron.js patches/micron.patch",
     "build": "yarn clean && yarn build:css && yarn build:js && yarn build:patch && webpack",
-    "clean": "rimraf lib/react-ional.js lib/react-ional.dev.js src/css src/script",
+    "clean": "rimraf lib src/css src/script",
     "test": "echo \"No tests \" && exit 0"
   },
   "keywords": [
