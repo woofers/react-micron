@@ -38,7 +38,7 @@ const Base = ({
     const styles = encloseAll(initialStyles)
     styles.map(style => style.use())
     return () => {
-      styles.map.unuse(style => style.unuse())
+      styles.map(style => style.unuse())
     }
   }, [initialStyles])
   const getMicron = () => {
