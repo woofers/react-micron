@@ -1,0 +1,15 @@
+--- micron.js	2021-01-04 16:56:01.126127809 -0800
++++ micron.new.js	2021-01-04 17:03:47.760595419 -0800
+@@ -80,7 +80,11 @@
+ 
+     //Get Element from DOM
+     var getEle = function (paramEle) {
+-        ele = document.querySelector(paramEle);
++        if (typeof paramEle === 'string') {
++          ele = document.querySelector(paramEle);
++        } else {
++          ele = paramEle;
++        }
+         if (ele != undefined && ele != null) {
+             node = ele;
+             ele.parentNode.replaceChild(node, ele);
