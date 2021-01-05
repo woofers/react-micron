@@ -1,9 +1,9 @@
 import React from 'react'
-import Base, { makeHoc } from './base'
+import Base, { propTypes, makeHoc } from './base'
 import styles from './css/micron-fade.min.css'
 
 const Fade = p => <Base {...p} type="fade" styles={styles} />
 
-export default Fade
+export default propTypes(Fade)
 
 export const withFade = makeHoc(Fade)

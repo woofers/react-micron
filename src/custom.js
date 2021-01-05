@@ -1,6 +1,6 @@
 import React from 'react'
-import Base from './base'
+import Base, { propTypes } from './base'
 
 const Custom = p => <Base {...p} styles={[]} />
 
-export default Custom
+export default propTypes(Custom, true)

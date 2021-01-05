@@ -2,7 +2,7 @@
   "name": "react-micron",
   "version": "1.0.0",
   "description": "Microinteractions using micron.js for React",
-  "main": "lib/react-micron.js",
+  "main": "lib/index.js",
   "src": "src/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -18,7 +18,7 @@
     "build:js": "cp -r node_modules/webkul-micron/build/script src/.",
     "build:patch": "patch src/script/micron.js patches/micron.patch",
     "build": "yarn clean && yarn build:css && yarn build:js && yarn build:patch && webpack",
-    "clean": "rimraf lib src/css src/script",
+    "clean": "rimraf lib/react-micron.js lib/react-micron.dev.js src/css src/script",
     "test": "echo \"No tests \" && exit 0"
   },
   "keywords": [
@@ -53,5 +53,7 @@
     "webpack-cli": "^4.3.1",
     "webpack-node-externals": "^2.5.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  }
 }
