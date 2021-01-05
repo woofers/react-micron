@@ -32,7 +32,7 @@ const config = mode => {
     externals: [nodeExternals(), 'react'],
     mode: 'production',
     optimization: {
-      minimize: !isDev,
+      minimize: true,
       chunkIds: isDev ? 'named' : 'natural',
       moduleIds: isDev ? 'named' : 'natural'
     },
@@ -62,4 +62,7 @@ const config = mode => {
   }
 }
 
-module.exports = config('production')
+module.exports = [
+  config('development'),
+  config('production')
+]

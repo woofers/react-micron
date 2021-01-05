@@ -2,6 +2,7 @@
 /node_modules/
 
 dist
-lib
+lib/react-micron.js
+lib/react-micron.dev.js
 src/css
 src/script
