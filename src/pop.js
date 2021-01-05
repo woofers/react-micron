@@ -1,5 +1,5 @@
 import React from 'react'
-import Base, { makeHoc } from './internal/base.js'
+import Base, { makeHoc } from './base'
 import styles from './css/micron-pop.min.css'
 
 const Pop = p => <Base {...p} type="pop" styles={styles} />

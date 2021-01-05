@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef, useEffect } from 'react'
-import micron from '../script/micron'
+import micron from './script/micron'
 
 const enclose = cond => arr => (arr => !Array.isArray(arr) && cond(arr) ? [arr] : arr)(arr || [])
 
@@ -42,7 +42,7 @@ const Base = ({
     }
   }, [initialStyles])
   const getMicron = () => {
-    if (!ref?.current) return
+    if (!ref?.current) return micron
     micron.getEle(ref?.current)
     return micron
   }
