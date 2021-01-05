@@ -14,12 +14,12 @@ const toEvents = (events, interaction) => events.reduce((acc, next) => {
   return acc
 }, {})
 
-const eventEntries = (events, getMicron) =>
+const eventEntries = (events, interaction, getMicron) =>
   Object.fromEntries(Object.entries(events).map(
-    ([key, value]) => ([key, value(getMicron)]))
+    ([key, value]) => ([key, value(interaction, getMicron)]))
   )
 
-const handlers = (events, interaction, getMicron) => !Array.isArray(events) ? eventEntries(events, getMicron) : toEvents(events, interaction)
+const handlers = (events, interaction, getMicron) => !Array.isArray(events) ? eventEntries(events, interaction, getMicron) : toEvents(events, interaction)
 
 const Wrapper = forwardRef(({ inline, ...rest }, ref) => inline ? <span {...rest} ref={ref} /> : <div {...rest} ref={ref} />)
 
