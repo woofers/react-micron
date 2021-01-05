@@ -1,45 +1,49 @@
 
+#+TITLE:    React Micron
+#+AUTHOR:	Jaxson Van Doorn
+#+EMAIL:	jaxson.vandoorn@gmail.com
+#+OPTIONS:  num:nil toc:nil
 
-# React Micron
+* React Micron
 
-[![img](https://github.com/woofers/react-micron/workflows/build/badge.svg)](https://github.com/woofers/react-micron/actions) [![img](https://david-dm.org/woofers/react-micron.svg)](https://www.npmjs.com/package/react-micron) [![img](https://badge.fury.io/js/react-micron.svg)](https://www.npmjs.com/package/react-micron) [![img](https://img.shields.io/npm/dt/react-micron.svg)](https://www.npmjs.com/package/react-micron) [![img](https://img.shields.io/npm/l/react-micron.svg)](https://github.com/woofers/react-micron/blob/master/LICENSE)
+[[https://github.com/woofers/react-yat/actions][https://github.com/woofers/react-micron/workflows/build/badge.svg]] [[https://www.npmjs.com/package/react-yat][https://david-dm.org/woofers/react-micron.svg]] [[https://www.npmjs.com/package/react-yat][https://badge.fury.io/js/react-micron.svg]] [[https://www.npmjs.com/package/react-yat][https://img.shields.io/npm/dt/react-micron.svg]] [[https://github.com/woofers/react-yat/blob/master/LICENSE][https://img.shields.io/npm/l/react-micron.svg]]
 
-Microinteractions for React using [micron.js](https://webkul.github.io/micron/).
+Microinteractions for React using [[https://webkul.github.io/micron/][micron.js]].
+* Why?
 
+From [[https://www.toptal.com/designers/product-design/microinteractions-better-ux][Ondřej Dostál]]:
 
-# Why?
-
-From [Ondřej Dostál](https://www.toptal.com/designers/product-design/microinteractions-better-ux):
-
-> Microinteractions are single interactive moments in a product
-> that enhance the workflow and increase ease of use.
+#+BEGIN_QUOTE
+Microinteractions are single interactive moments in a product
+that enhance the workflow and increase ease of use.
+#+END_QUOTE
 
 Typically this is by way of subtle visual effects that are triggered to provide user feedback:
 
--   Provide feedback before triggering an action
--   Draws a users attention to a particular element
--   Provide feedback that an action was successful
--   Provide feedback that an action failed
--   Make applications feels more responsive and rewarding to use.
+- Provide feedback before triggering an action
+- Draws a users attention to a particular element
+- Provide feedback that an action was successful
+- Provide feedback that an action failed
+- Make applications feels more responsive and rewarding to use.
 
-`react-micron` helps achieve this by providing easy-to-use components
+~react-micron~ helps achieve this by providing easy-to-use components
 which correspond to micro-actions that can be easily triggered by a user-interaction.
 
+* Installation
 
-# Installation
+*Yarn*
+#+BEGIN_SRC
+yarn add react-micron
+#+END_SRC
 
-**Yarn**
+*npm*
+#+BEGIN_SRC
+npm install react-micron
+#+END_SRC
 
-    yarn add react-micron
+* Usage
 
-**npm**
-
-    npm install react-micron
-
-
-# Usage
-
-```jsx
+#+BEGIN_SRC js
 import React from 'react'
 import { Bounce } from 'react-micron'
 
@@ -50,13 +54,13 @@ const App = () => (
 )
 
 export default App
-```
+#+END_SRC
 
 Simply add the component to the React application using JSX.
 
 The following example shows the default props set explicitly.
 
-```jsx
+#+BEGIN_SRC js
 import React from 'react'
 import { Blink,
          Bounce,
@@ -83,35 +87,30 @@ const App = () => (
 )
 
 export default App
-```
+#+END_SRC
 
-
-## Props
-
-
-### Children
-
+** Props
+*** Children
 The elements to bind the microinteraction to.
 
 In most cases this should be regular children elements passed as a React node.
 
 However it can also be a render prop which can accept up to 2 arguments:
 
--   `interaction`: Function which invokes the microinteraction.
--   `micron`: Method to access the micron API directly.
+- ~interaction~: Function which invokes the microinteraction.
+- ~micron~: Method to access the micron API directly.
 
+*** Events
 
-### Events
+~events~ indicates what event handlers to use to trigger the microinteraction.  *Default:* ~onClick~
 
-`events` indicates what event handlers to use to trigger the microinteraction.  **Default:** `onClick`
-
-This can be a string or an array of strings to call the microinteraction on multiple events.  To disable an implicit event handling by `react-micron`, an empty array or object can be passed.
+This can be a string or an array of strings to call the microinteraction on multiple events.  To disable an implicit event handling by ~react-micron~, an empty array or object can be passed.
 
 Alternatively, an object can be passed to explicitly set each event handler using curried functions.
 
 An example of this is as follows:
 
-```js
+#+BEGIN_SRC js
 {
   onClick: (interaction, micron) => () => interaction(),
   onMouseOver: (interaction, micron) => event => {
@@ -119,39 +118,34 @@ An example of this is as follows:
     micron().interaction('bounce').duration(2).timing('linear')
   }
 }
-```
+#+END_SRC
 
-By using a curried function the original arguments from the event handler can be used, along with the injected `react-micron` functions.
+By using a curried function the original arguments from the event handler can be used, along with the injected ~react-micron~ functions.
 
+*** Timing
 
-### Timing
+~timing~ controls the easing of the microinteraction.  *Default:* ~ease-in-out~
 
-`timing` controls the easing of the microinteraction.  **Default:** `ease-in-out`
-
-Must be one of `linear`, `ease-in`, `ease-out` or `ease-in-out`.
+Must be one of ~linear~, ~ease-in~, ~ease-out~ or ~ease-in-out~.
 
 Type: String
+*** Duration
 
+~duration~ is the duration in seconds of the microinteraction.  *Default:* ~0.45~
 
-### Duration
+*** Inline
 
-`duration` is the duration in seconds of the microinteraction.  **Default:** `0.45`
+~inline~ controls what element the microinteraction is enclosed in. *Default:* ~false~
 
+If set a ~span~ is used to wrap the elements.  Otherwise a ~div~ is used.
 
-### Inline
-
-`inline` controls what element the microinteraction is enclosed in. **Default:** `false`
-
-If set a `span` is used to wrap the elements.  Otherwise a `div` is used.
-
-
-## Advanced Usage
+** Advanced Usage
 
 For more complex usage, using render prop is recommended.
 
 This allows the interaction to be triggered directly, or access micron directly.
 
-```jsx
+#+BEGIN_SRC js
 import React from 'react'
 import { Blink,
          Bounce,
@@ -182,11 +176,11 @@ const App = () => (
 )
 
 export default App
-```
+#+END_SRC
 
 Or equivalently using the corresponding HOC
 
-```jsx
+#+BEGIN_SRC js
 import React from 'react'
 import { withBlink,
          withBounce,
@@ -217,9 +211,9 @@ export default withBounce(App, {
   timing: 'ease-in',
   duration: 0.1
 })
-```
+#+END_SRC
 
-In the above 2 examples setting `events` to an empty array disables any of the interaction
-done by `react-micron`.  This can then be triggered by using the `interaction` callback directly or using the `micron` API directly.
+In the above 2 examples setting ~events~ to an empty array disables any of the interaction
+done by ~react-micron~.  This can then be triggered by using the ~interaction~ callback directly or using the ~micron~ API directly.
 
 This allows animations of different speeds or timing to be triggered depending on how the interaction is triggered.

@@ -1,7 +1,7 @@
 {
   "name": "react-micron",
   "version": "1.0.0",
-  "description": "Microinteractions using micron.js for React",
+  "description": "Microinteractions for React using micron.js",
   "main": "lib/index.js",
   "src": "src/index.js",
   "types": "lib/index.d.ts",
