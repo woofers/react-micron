@@ -1,8 +1,8 @@
 {
-  "name": "react-ional",
-  "version": "0.2.0",
-  "description": "Microinteractions using the Web Animations API for React",
-  "main": "lib/react-ional.js",
+  "name": "react-micron",
+  "version": "0.1.0",
+  "description": "Microinteractions using micron.js for React",
+  "main": "lib/react-micron.js",
   "src": "src/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -11,7 +11,7 @@
     "LICENSE",
     "README.md"
   ],
-  "repository": "https://github.com/woofers/react-ional",
+  "repository": "https://github.com/woofers/react-micron",
   "scripts": {
     "start": "yarn watch",
     "build:css": "cp -r node_modules/webkul-micron/dist/css src/.",
