@@ -24,7 +24,7 @@ const Wrapper = forwardRef(({ inline, ...rest }, ref) => inline ? <span {...rest
 const Base = ({
   children,
   events: initialEvents = 'onClick',
-  timing = 'ease-in',
+  timing = 'ease-in-out',
   duration = 0.45,
   inline = false,
   // Internal
