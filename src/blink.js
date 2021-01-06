@@ -1,6 +1,6 @@
 import React from 'react'
 import Base, { propTypes, makeHoc } from './base'
-import styles from './css/micron-blink.min.css'
+import styles from '../micron/build/less/partials/_blink.less'
 
 const Blink = p => <Base {...p} type="blink" styles={styles} />
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Base, { propTypes, makeHoc } from './base'
-import styles from './css/micron-bounce.min.css'
+import styles from '../micron/build/less/partials/_bounce.less'
 
 const Bounce = p => <Base {...p} type="bounce" styles={styles} />
 

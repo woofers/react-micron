@@ -1,6 +1,6 @@
 import React from 'react'
 import Base, { propTypes, makeHoc } from './base'
-import styles from './css/micron-flicker.min.css'
+import styles from '../micron/build/less/partials/_flicker.less'
 
 const Flicker = p => <Base {...p} type="flicker" styles={styles} />
 
