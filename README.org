@@ -106,7 +106,7 @@ However it can also be a render prop which can accept up to 2 arguments:
 
 ~events~ indicates what event handlers are used to trigger the microinteraction.  *Default:* ~onClick~
 
-This can be a string or an array of strings to call the microinteraction on multiple events.  
+This can be a string or an array of strings to call the microinteraction on multiple events.
 
 To disable any implicit event handling by ~react-micron~, an empty array or object can be passed.
 
@@ -220,3 +220,45 @@ In the above 2 examples setting ~events~ to an empty array disables any of the i
 done by ~react-micron~.  This can then be triggered by using the ~interaction~ callback or using the ~micron~ API directly.
 
 This allows animations of different speeds or timing to be triggered depending on how the interaction is triggered.
+** Custom Interactions
+
+#+BEGIN_SRC js
+/** @jsx jsx */
+import React from 'react'
+import { Custom } from 'react-micron'
+import { Global, css, keyframes, jsx } from "@emotion/react"
+
+const dimAnimation = keyframes`
+ from, 20%, 53%, 80%, to {
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    transform: translate3d(0,-4px,0);
+  }
+`
+
+const style = css`
+ .mjs-shift {
+    animation: custom-action;
+    animation: ${dimAnimation};
+ }
+`
+
+const Shift = props => (
+  <>
+    <Global styles={style} />
+    <Custom {...props} type="shift" />
+  </>
+)
+
+export default Dim
+#+END_SRC
