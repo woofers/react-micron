@@ -1,6 +1,6 @@
 import React from 'react'
 import Base, { propTypes, makeHoc } from './base'
-import styles from './css/micron-swing.min.css'
+import styles from '../micron/build/less/partials/_swing.less'
 
 const Swing = p => <Base {...p} type="swing" styles={styles} />
 
