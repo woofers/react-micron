@@ -225,3 +225,53 @@ In the above 2 examples setting `events` to an empty array disables any of the i
 done by `react-micron`.  This can then be triggered by using the `interaction` callback or using the `micron` API directly.
 
 This allows animations of different speeds or timing to be triggered depending on how the interaction is triggered.
+
+
+## Custom Interactions
+
+Custom interactions can be defined by using the `Custom` component.
+
+This can be done by adding a CSS class `mjs-<type>` where `type` is some string identifier for the interaction,
+passed to the component as a prop.
+
+This can be done via regular CSS imports however in this example CSS-in-JS will be used with [Emotion](https://emotion.sh/):
+
+```jsx
+/** @jsx jsx */
+import React from 'react'
+import { Custom } from 'react-micron'
+import { Global, css, keyframes, jsx } from '@emotion/react'
+
+const shiftAnimation = keyframes`
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(10px, -5px, 0);
+  }
+  60% {
+    transform: translate3d(5px, -2.5px, 0);
+  }
+  80% {
+    transform: translate3d(2px, -1.25px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+`
+
+const style = css`
+ .mjs-shift {
+    animation: ${shiftAnimation};
+ }
+`
+
+const Shift = props => (
+  <>
+    <Global styles={style} />
+    <Custom {...props} type="shift" />
+  </>
+)
+
+export default Shift
+```
