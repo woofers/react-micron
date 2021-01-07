@@ -1,5 +1,6 @@
 import React, { forwardRef, useRef, useEffect } from 'react'
 import micron from './script/micron'
+import global from '../micron/build/less/partials/_globals.less'
 
 const PropTypes = process.env.NODE_ENV !== 'production' ? require('prop-types') : {}
 
@@ -37,7 +38,7 @@ const Base = ({
   const ref = useRef()
   const events = encloseString(initialEvents)
   useEffect(() => {
-    const styles = encloseAll(initialStyles)
+    const styles = [global, ...(encloseAll(initialStyles))]
     styles.map(style => style.use())
     return () => {
       styles.map(style => style.unuse())

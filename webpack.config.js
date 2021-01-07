@@ -8,6 +8,19 @@ const webpack = require('webpack')
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { DefinePlugin } = webpack
 
+const css = (extra = []) => ([
+  {
+    loader: 'style-loader',
+    options: {
+      injectType: 'lazyStyleTag'
+    }
+  },
+  {
+    loader: 'css-loader'
+  },
+  ...extra
+])
+
 const config = mode => {
   const isDev = mode !== 'production'
   const name = `${json.name}${isDev ? '.dev' : ''}`
@@ -45,17 +58,11 @@ const config = mode => {
         },
         {
           test: /\.css$/,
-          use: [
-            {
-              loader: 'style-loader',
-              options: {
-                injectType: 'lazyStyleTag'
-              }
-            },
-            {
-              loader: 'css-loader'
-            }
-          ]
+          use: css()
+        },
+        {
+          test: /\.less$/,
+          use: css(['less-loader'])
         }
       ]
     }

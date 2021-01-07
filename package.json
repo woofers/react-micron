@@ -14,11 +14,10 @@
   "repository": "https://github.com/woofers/react-micron",
   "scripts": {
     "start": "yarn watch",
-    "build:css": "cp -r node_modules/webkul-micron/dist/css src/.",
-    "build:js": "cp -r node_modules/webkul-micron/build/script src/.",
+    "build:js": "cp -r micron/build/script src/.",
     "build:patch": "patch src/script/micron.js patches/micron.patch",
-    "build": "yarn clean && yarn build:css && yarn build:js && yarn build:patch && webpack",
-    "clean": "rimraf lib/react-micron.js lib/react-micron.dev.js src/css src/script",
+    "build": "yarn clean && yarn build:js && yarn build:patch && webpack",
+    "clean": "rimraf lib/react-micron.js lib/react-micron.dev.js src/script",
     "test": "echo \"No tests \" && exit 0"
   },
   "keywords": [
@@ -45,6 +44,7 @@
     "eslint": "^7.17.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-webpack-plugin": "^2.4.1",
+    "less-loader": "^7.2.1",
     "peer-deps-externals-webpack-plugin": "^1.0.4",
     "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
