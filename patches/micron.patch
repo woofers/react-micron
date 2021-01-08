@@ -1,6 +1,30 @@
---- micron.js	2021-01-04 16:56:01.126127809 -0800
-+++ micron.new.js	2021-01-04 17:03:47.760595419 -0800
-@@ -80,7 +80,11 @@
+--- micron.js	2021-01-07 16:12:11.724893285 -0800
++++ micron-new.js	2021-01-07 16:13:08.714193654 -0800
+@@ -63,14 +63,16 @@
+   });
+ }
+ 
+-// If micron.js gets fetched asynchronously
+-// We may or may not catch the DOMContentLoaded event
+-if (document.readyState != "loading") {
+-  watchEvents();
+-} else {
+-  document.addEventListener("DOMContentLoaded", function () {
++if (typeof document !== 'undefined') {
++  // If micron.js gets fetched asynchronously
++  // We may or may not catch the DOMContentLoaded event
++  if (document.readyState != "loading") {
+     watchEvents();
+-  });
++  } else {
++    document.addEventListener("DOMContentLoaded", function () {
++      watchEvents();
++    });
++  }
+ }
+ 
+ //Micron Prototype
+@@ -80,7 +82,11 @@
  
      //Get Element from DOM
      var getEle = function (paramEle) {
