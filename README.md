@@ -32,12 +32,15 @@ which correspond to micro-actions that can be easily triggered by a user-interac
 
 **Yarn**
 
-    yarn add react-micron
+```yarn
+yarn add react-micron
+```
 
 **npm**
 
-    npm install react-micron
-
+```npm
+npm install react-micron
+```
 
 # Usage
 
