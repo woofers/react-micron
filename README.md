@@ -2,9 +2,11 @@
 
 # React Micron
 
-[![img](https://github.com/woofers/react-micron/workflows/build/badge.svg)](https://github.com/woofers/react-micron/actions) [![img](https://david-dm.org/woofers/react-micron.svg)](https://www.npmjs.com/package/react-micron) [![img](https://badge.fury.io/js/react-micron.svg)](https://www.npmjs.com/package/react-micron) [![img](https://img.shields.io/npm/dt/react-micron.svg)](https://www.npmjs.com/package/react-micron) [![img](https://img.shields.io/npm/l/react-micron.svg)](https://github.com/woofers/react-micron/blob/master/LICENSE)
+![img](https://img.shields.io/badge/status-deprecated-d43d3d) [![img](https://badge.fury.io/js/react-micron.svg)](https://www.npmjs.com/package/react-micron) [![img](https://img.shields.io/npm/dt/react-micron.svg)](https://www.npmjs.com/package/react-micron) [![img](https://img.shields.io/npm/l/react-micron.svg)](https://github.com/woofers/react-micron/blob/master/LICENSE)
 
 Microinteractions for React using [micron.js](https://webkul.github.io/micron/).
+
+### WARNING: This package is deprecated and no longer maintained.
 
 
 # Why?
